@@ -1,0 +1,72 @@
+# Directories #
+[Bb]in/
+[Oo]bj/
+[Ll]ogs/
+[Pp]roperties/
+[Tt]est[Rr]esults/
+
+# Files #
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.cache
+*.csproj.user
+*.swp
+*.[Cc]ache
+*.[Rr]es[Ss]harper*
+*.[Cc]runch
+*.log
+*.vscode
+*.vs/
+*.nupkg
+*.snk
+
+# Rider #
+.idea/
+
+# Visual Studio Code #
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+# Build results #
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]ogs/
+[Tt]est[Rr]esults/
+
+# NuGet #
+packages/
+*.nupkg
+*.nuproj
+*.nuget.targets
+*.nuget.props
+global.json
+
+# .NET Core #
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding #
+ScaffoldingReadMe.txt
+
+# Others #
+*.DS_Store
+AzureWebJobsScriptRoot/
+
+# Exclude .env files #
+*.env
+*.env.local
