@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
@@ -7,18 +8,18 @@ using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
 using System.Collections.Specialized;
 using System.Web;
-using Mslm.EmailVerify;
+using Mslm.EmailVerifyNS;
 
-namespace Mslm.Lib
+namespace Mslm.LibNS
 {
-    public class Util
+    public class Lib
     {
         public string ApiKey { get; set; }
         public HttpClient Http { get; set; }
         public Uri BaseUrl { get; set; }
         public string UserAgent { get; set; }
 
-        public Util()
+        public Lib()
         {
             ApiKey = "";
             Http = new HttpClient();
@@ -26,7 +27,7 @@ namespace Mslm.Lib
             UserAgent = GetUserAgent("mslm");
         }
 
-        public Util(string apiKey)
+        public Lib(string apiKey)
         {
             ApiKey = apiKey;
             Http = new HttpClient();
@@ -61,7 +62,6 @@ namespace Mslm.Lib
 
         public Uri PrepareUrl(string urlPath, Dictionary<string, string> queryParams, ReqOpts opts)
         {
-            // Assuming BaseUrl is the root URL like "http://localhost:1793"
             var baseUri = new Uri(opts.BaseUrl, urlPath);
             var query = HttpUtility.ParseQueryString(string.Empty);
 
@@ -81,9 +81,15 @@ namespace Mslm.Lib
             return uriBuilder.Uri;
         }
 
-        public async Task<SingleVerifyResp> ReqAndResp(Uri url, ReqOpts opts)
+        public async Task<T> ReqAndResp<T>(string method, Uri url, ReqOpts opts, string? data = null) where T : new()
         {
-            using var request = new HttpRequestMessage(HttpMethod.Get, url);
+            using var request = new HttpRequestMessage(new HttpMethod(method), url);
+
+            // Add data to the request body for POST and PUT methods
+            if (!string.IsNullOrEmpty(data) && (method == HttpMethod.Post.Method || method == HttpMethod.Put.Method))
+            {
+                request.Content = new StringContent(data, Encoding.UTF8, "application/json");
+            }
 
             // Set a valid User-Agent header
             request.Headers.UserAgent.ParseAdd("mslm-sdk/1.0.0");
@@ -92,18 +98,8 @@ namespace Mslm.Lib
             response.EnsureSuccessStatusCode();
 
             string jsonData = await response.Content.ReadAsStringAsync();
-            // Console.WriteLine($"Raw JSON data: {jsonData}");
-
-            // var jsonObject = JsonConvert.DeserializeObject<JObject>(jsonData);
-            // Console.WriteLine($"JSON Object: {jsonObject.ToString()}");
-
-            var result = JsonConvert.DeserializeObject<SingleVerifyResp>(jsonData);
-
-            // Option 1: Throw an exception if result is null
-            if (result == null)
-            {
-                throw new InvalidOperationException("Deserialization of response returned null.");
-            }
+            T result = JsonConvert.DeserializeObject<T>(jsonData)
+                       ?? throw new InvalidOperationException("Deserialization of response returned null.");
 
             return result;
         }

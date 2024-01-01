@@ -1,7 +1,7 @@
 using System;
 using System.Net.Http;
 
-namespace Mslm.Lib
+namespace Mslm.LibNS
 {
     public class ReqOpts
     {
@@ -14,7 +14,7 @@ namespace Mslm.Lib
         {
             Http = new HttpClient();
             BaseUrl = new Uri("https://mslm.io");
-            UserAgent = Util.GetUserAgent("mslm");
+            UserAgent = Lib.GetUserAgent("mslm");
             ApiKey = "";
         }
 

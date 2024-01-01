@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Mslm.EmailVerify
+namespace Mslm.EmailVerifyNS
 {
     public class SingleVerifyResp
     {
@@ -42,33 +42,33 @@ namespace Mslm.EmailVerify
         [JsonProperty("mx")]
         public List<SingleVerifyRespMx>? Mx { get; set; }
 
-        public override string ToString()
-        {
-            var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("SingleVerifyResp {");
-            stringBuilder.AppendLine($"  Email: {Email},");
-            stringBuilder.AppendLine($"  Username: {Username},");
-            stringBuilder.AppendLine($"  Domain: {Domain},");
-            stringBuilder.AppendLine($"  Malformed: {Malformed},");
-            stringBuilder.AppendLine($"  Suggestion: {Suggestion},");
-            stringBuilder.AppendLine($"  Status: {Status},");
-            stringBuilder.AppendLine($"  HasMailbox: {HasMailbox},");
-            stringBuilder.AppendLine($"  AcceptAll: {AcceptAll},");
-            stringBuilder.AppendLine($"  Disposable: {Disposable},");
-            stringBuilder.AppendLine($"  Free: {Free},");
-            stringBuilder.AppendLine($"  Role: {Role},");
-            stringBuilder.Append("  Mx: [");
-            if (Mx != null)
-            {
-                foreach (var mx in Mx)
-                {
-                    stringBuilder.Append(mx.ToString() + ", ");
-                }
-            }
-            stringBuilder.AppendLine("]");
-            stringBuilder.Append("}");
-            return stringBuilder.ToString();
-        }
+        // public override string ToString()
+        // {
+        //     var stringBuilder = new StringBuilder();
+        //     stringBuilder.AppendLine("SingleVerifyResp {");
+        //     stringBuilder.AppendLine($"  Email: {Email},");
+        //     stringBuilder.AppendLine($"  Username: {Username},");
+        //     stringBuilder.AppendLine($"  Domain: {Domain},");
+        //     stringBuilder.AppendLine($"  Malformed: {Malformed},");
+        //     stringBuilder.AppendLine($"  Suggestion: {Suggestion},");
+        //     stringBuilder.AppendLine($"  Status: {Status},");
+        //     stringBuilder.AppendLine($"  HasMailbox: {HasMailbox},");
+        //     stringBuilder.AppendLine($"  AcceptAll: {AcceptAll},");
+        //     stringBuilder.AppendLine($"  Disposable: {Disposable},");
+        //     stringBuilder.AppendLine($"  Free: {Free},");
+        //     stringBuilder.AppendLine($"  Role: {Role},");
+        //     stringBuilder.Append("  Mx: [");
+        //     if (Mx != null)
+        //     {
+        //         foreach (var mx in Mx)
+        //         {
+        //             stringBuilder.Append(mx.ToString() + ", ");
+        //         }
+        //     }
+        //     stringBuilder.AppendLine("]");
+        //     stringBuilder.Append("}");
+        //     return stringBuilder.ToString();
+        // }
     }
 
     public class SingleVerifyRespMx

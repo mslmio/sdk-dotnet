@@ -1,6 +1,6 @@
-using Mslm.Lib;
+using Mslm.LibNS;
 
-namespace Mslm.EmailVerify
+namespace Mslm.EmailVerifyNS
 {
     public class SingleVerifyReqOpts
     {
