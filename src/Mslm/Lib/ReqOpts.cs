@@ -25,7 +25,5 @@ namespace Mslm.LibNS
             UserAgent = userAgent;
             ApiKey = apiKey;
         }
-
-        // Builder class not required in C# due to object initializer syntax
     }
 }

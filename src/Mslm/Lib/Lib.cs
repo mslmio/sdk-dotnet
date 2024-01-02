@@ -89,18 +89,17 @@ namespace Mslm.LibNS
             if (!string.IsNullOrEmpty(data) && (method == HttpMethod.Post.Method || method == HttpMethod.Put.Method))
             {
                 request.Content = new StringContent(data, Encoding.UTF8, "application/json");
+
             }
 
             // Set a valid User-Agent header
             request.Headers.UserAgent.ParseAdd("mslm-sdk/1.0.0");
 
             HttpResponseMessage response = await Http.SendAsync(request);
-            response.EnsureSuccessStatusCode();
 
             string jsonData = await response.Content.ReadAsStringAsync();
             T result = JsonConvert.DeserializeObject<T>(jsonData)
-                       ?? throw new InvalidOperationException("Deserialization of response returned null.");
-
+                       ?? throw new InvalidOperationException("Deserialization of response returned null.");     
             return result;
         }
     }
