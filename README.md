@@ -43,12 +43,12 @@ class Program
     {
         // Email verification example
         var emailVerifyClient = new EmailVerify("MSLM_API_KEY");
-		string emailToVerify = "abc@gmail.com";
+        string emailToVerify = "abc@gmail.com";
 
-		var response = await emailVerifyClient.SingleVerify(emailToVerify);
-		Console.WriteLine($"Msg: {response.Msg}");
-		Console.WriteLine($"Email: {response.Email}");
-		Console.WriteLine($"Status: {response.Status}");
+        var response = await emailVerifyClient.SingleVerify(emailToVerify);
+        Console.WriteLine($"Msg: {response.Msg}");
+        Console.WriteLine($"Email: {response.Email}");
+        Console.WriteLine($"Status: {response.Status}");
 
         // Otp send example (use actual phone number)
         var otpSendReq = new OtpSendReq
@@ -59,10 +59,10 @@ class Program
                 ExpireSeconds = 300
             };
 
-		var otpSendClient = new Otp("MSLM_API_KEY");
-		var response = await otpSendClient.Send(otpSendReq);
-		Console.WriteLine($"Code: {response.Code}");
-		Console.WriteLine($"Msg: {response.Msg}");
+        var otpSendClient = new Otp("MSLM_API_KEY");
+        var response = await otpSendClient.Send(otpSendReq);
+        Console.WriteLine($"Code: {response.Code}");
+        Console.WriteLine($"Msg: {response.Msg}");
 
         // Otp token verify example (use actual phone number and token)
         var otpVerifyReq = new OtpTokenVerifyReq
@@ -72,10 +72,10 @@ class Program
                 Consume = true
             };
 
-		var otpVerifyClient = new Otp("MSLM_API_KEY");
-		var response = await otpVerifyClient.Verify(otpVerifyReq);
-		Console.WriteLine($"Code: {response.Code}");
-		Console.WriteLine($"Msg: {response.Msg}");
+        var otpVerifyClient = new Otp("MSLM_API_KEY");
+        var response = await otpVerifyClient.Verify(otpVerifyReq);
+        Console.WriteLine($"Code: {response.Code}");
+        Console.WriteLine($"Msg: {response.Msg}");
     }
 }
 
