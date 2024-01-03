@@ -55,7 +55,7 @@ namespace Mslm.OtpNS
                 UserAgent = _lib.UserAgent,
             };
 
-            // Prepare query parameters including the API key
+            // Prepare query parameters including the API key.
             var queryParams = new Dictionary<string, string>
             {
                 ["apikey"] = opts.ApiKey
@@ -77,7 +77,7 @@ namespace Mslm.OtpNS
 
             OtpSendReqOpts opt = opts ?? new OtpSendReqOpts();
 
-            // Prepare query parameters including the API key
+            // Prepare query parameters including the API key.
             var queryParams = new Dictionary<string, string>
             {
                 ["apikey"] = opt.ReqOpts.ApiKey
@@ -109,7 +109,7 @@ namespace Mslm.OtpNS
                 UserAgent = _lib.UserAgent,
             };
 
-            // Prepare query parameters including the API key
+            // Prepare query parameters including the API key.
             var queryParams = new Dictionary<string, string>
             {
                 ["apikey"] = opts.ApiKey
@@ -134,7 +134,7 @@ namespace Mslm.OtpNS
 
             OtpTokenVerifyReqOpts opt = opts ?? new OtpTokenVerifyReqOpts();
 
-            // Prepare query parameters including the API key
+            // Prepare query parameters including the API key.
             var queryParams = new Dictionary<string, string>
             {
                 ["apikey"] = opt.ReqOpts.ApiKey

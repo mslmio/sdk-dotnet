@@ -1,4 +1,3 @@
-// OtpTokenVerifyResp.cs
 using Newtonsoft.Json;
 
 namespace Mslm.OtpNS

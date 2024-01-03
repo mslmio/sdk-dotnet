@@ -6,6 +6,12 @@ namespace Mslm.EmailVerifyNS
 {
     public class SingleVerifyResp
     {
+        [JsonProperty("code")]
+        public long Code { get; set; }
+
+        [JsonProperty("msg")]
+        public string? Msg { get; set; }
+
         [JsonProperty("email")]
         public string? Email { get; set; }
 
