@@ -26,8 +26,8 @@ namespace OtpSendSample
             try
             {
                 var response = await otpSendClient.Send(otpSendReq);
-                Console.WriteLine($"OTP Send Response Msg: {response.Msg}");
-                Console.WriteLine($"OTP Send Response Code: {response.Code}");
+                Console.WriteLine($"Code: {response.Code}");
+                Console.WriteLine($"Msg: {response.Msg}");
             }
             catch (Exception ex)
             {

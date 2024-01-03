@@ -1,11 +1,12 @@
-using System;
-using System.Net.Http;
 using Mslm.EmailVerifyNS;
 using Mslm.OtpNS;
 using Mslm.LibNS;
 
 namespace Mslm.MslmNS
 {
+    /// <summary>
+    /// Represents the main client for the Mslm SDK, providing access to Email Verification and OTP services.
+    /// </summary>
     public class MslmClient
     {
         // Common util class.
@@ -13,6 +14,8 @@ namespace Mslm.MslmNS
 
         // The Email Verify API client.
         public EmailVerify EmailVerifyClient { get; private set; }
+
+        // The Otp API client
         public Otp OtpClient { get; private set; }
 
         public MslmClient()
@@ -29,6 +32,10 @@ namespace Mslm.MslmNS
             LibClient = new Lib(apiKey);
         }
 
+        /// <summary>
+        /// Sets the HttpClient used for making requests.
+        /// </summary>
+        /// <param name="httpClient">The HttpClient instance to use.</param>
         public void SetHttpClient(HttpClient httpClient)
         {
             EmailVerifyClient.SetHttpClient(httpClient);
@@ -36,6 +43,10 @@ namespace Mslm.MslmNS
             LibClient.SetHttpClient(httpClient);
         }
 
+        /// <summary>
+        /// Sets the base URL for API requests.
+        /// </summary>
+        /// <param name="baseUrlStr">The base URL string.</param>
         public void SetBaseUrl(string baseUrlStr)
         {
             EmailVerifyClient.SetBaseUrl(baseUrlStr);
@@ -43,6 +54,10 @@ namespace Mslm.MslmNS
             LibClient.SetBaseUrl(baseUrlStr);
         }
 
+        /// <summary>
+        /// Sets the User-Agent header for HTTP requests.
+        /// </summary>
+        /// <param name="userAgent">The User-Agent string.</param>
         public void SetUserAgent(string userAgent)
         {
             EmailVerifyClient.SetUserAgent(userAgent);
@@ -50,6 +65,10 @@ namespace Mslm.MslmNS
             LibClient.SetUserAgent(userAgent);
         }
 
+        /// <summary>
+        /// Sets the API key for the service.
+        /// </summary>
+        /// <param name="apiKey">The API key.</param>
         public void SetApiKey(string apiKey)
         {
             EmailVerifyClient.SetApiKey(apiKey);

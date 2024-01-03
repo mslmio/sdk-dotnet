@@ -1,17 +1,13 @@
-using System;
 using System.Text;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text.Json;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Threading.Tasks;
-using System.Collections.Specialized;
 using System.Web;
 using Mslm.EmailVerifyNS;
 
 namespace Mslm.LibNS
 {
+    /// <summary>
+    /// Provides a base library class for handling common operations such as HTTP requests.
+    /// </summary>
     public class Lib
     {
         public string ApiKey { get; set; }
@@ -35,26 +31,47 @@ namespace Mslm.LibNS
             UserAgent = GetUserAgent("mslm");
         }
 
+        /// <summary>
+        /// Sets the HttpClient used for making requests.
+        /// </summary>
+        /// <param name="httpClient">The HttpClient instance to use.</param>
         public void SetHttpClient(HttpClient httpClient)
         {
             Http = httpClient;
         }
 
+        /// <summary>
+        /// Sets the base URL for API requests.
+        /// </summary>
+        /// <param name="baseUrlStr">The base URL string.</param>
         public void SetBaseUrl(string baseUrlStr)
         {
             BaseUrl = new Uri(baseUrlStr);
         }
 
+        /// <summary>
+        /// Sets the User-Agent header for HTTP requests.
+        /// </summary>
+        /// <param name="userAgent">The User-Agent string.</param>
         public void SetUserAgent(string userAgent)
         {
             UserAgent = userAgent;
         }
 
+        /// <summary>
+        /// Sets the API key for the service.
+        /// </summary>
+        /// <param name="apiKey">The API key.</param>
         public void SetApiKey(string apiKey)
         {
             ApiKey = apiKey;
         }
 
+        /// <summary>
+        /// Constructs the User-Agent string for the service.
+        /// </summary>
+        /// <param name="pkg">The package name or identifier.</param>
+        /// <returns>A string representing the User-Agent.</returns>
         public static string GetUserAgent(string pkg)
         {
             return $"{pkg}/csharp/1.0.0";
@@ -73,6 +90,13 @@ namespace Mslm.LibNS
             };
         }
 
+        /// <summary>
+        /// Prepares the URL for making a request by appending query parameters.
+        /// </summary>
+        /// <param name="urlPath">The path segment of the URL.</param>
+        /// <param name="queryParams">The query parameters to append.</param>
+        /// <param name="opts">The request options containing the base URL.</param>
+        /// <returns>A <see cref="Uri"/> object representing the full URL.</returns>
         public Uri PrepareUrl(string urlPath, Dictionary<string, string> queryParams, ReqOpts opts)
         {
             var baseUri = new Uri(opts.BaseUrl, urlPath);
@@ -94,6 +118,15 @@ namespace Mslm.LibNS
             return uriBuilder.Uri;
         }
 
+        // <summary>
+        /// Makes an HTTP request and returns the deserialized response.
+        /// </summary>
+        /// <typeparam name="T">The type to deserialize the response to.</typeparam>
+        /// <param name="method">The HTTP method to use for the request.</param>
+        /// <param name="url">The URL to send the request to.</param>
+        /// <param name="opts">The request options.</param>
+        /// <param name="data">The data to send in the body of the request.</param>
+        /// <returns>A task that represents the asynchronous operation and contains the deserialized response.</returns>
         public async Task<T> ReqAndResp<T>(string method, Uri url, ReqOpts opts, string? data = null) where T : new()
         {
             using var request = new HttpRequestMessage(new HttpMethod(method), url);

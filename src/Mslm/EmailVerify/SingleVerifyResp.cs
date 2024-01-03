@@ -1,9 +1,10 @@
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Mslm.EmailVerifyNS
 {
+    /// <summary>
+    /// Represents the response received from a single email verification request.
+    /// </summary>
     public class SingleVerifyResp
     {
         [JsonProperty("code")]
@@ -49,6 +50,9 @@ namespace Mslm.EmailVerifyNS
         public List<SingleVerifyRespMx>? Mx { get; set; }
     }
 
+    /// <summary>
+    /// Represents a mail exchange (MX) record for a domain in the email verification response.
+    /// </summary>
     public class SingleVerifyRespMx
     {
         [JsonProperty("host")]

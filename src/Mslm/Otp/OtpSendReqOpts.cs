@@ -3,6 +3,9 @@ using Newtonsoft.Json;
 
 namespace Mslm.OtpNS
 {
+    /// <summary>
+    /// Represents the request for sending a One-Time Password (OTP).
+    /// </summary>
     public class OtpSendReq
     {
         [JsonProperty("phone")]
@@ -18,6 +21,9 @@ namespace Mslm.OtpNS
         public int ExpireSeconds { get; set; }
     }
 
+    /// <summary>
+    /// Represents request options specifically for the OTP send operation.
+    /// </summary>
     public class OtpSendReqOpts
     {
         public ReqOpts ReqOpts { get; set; }

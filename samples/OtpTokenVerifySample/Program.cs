@@ -25,8 +25,8 @@ namespace OtpTokenVerifySample
             try
             {
                 var response = await otpVerifyClient.Verify(otpVerifyReq);
-                Console.WriteLine($"OTP Send Response Msg: {response.Msg}");
-                Console.WriteLine($"OTP Send Response Code: {response.Code}");
+                Console.WriteLine($"Code: {response.Code}");
+                Console.WriteLine($"Msg: {response.Msg}");
             }
             catch (Exception ex)
             {

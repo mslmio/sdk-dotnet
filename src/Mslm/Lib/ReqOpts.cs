@@ -1,8 +1,9 @@
-using System;
-using System.Net.Http;
-
 namespace Mslm.LibNS
 {
+    /// <summary>
+    /// Represents the options for making HTTP requests, encapsulating various configurations like
+    /// API keys, base URLs, user agents, and HTTP clients.
+    /// </summary>
     public class ReqOpts
     {
         public string ApiKey { get; set; }

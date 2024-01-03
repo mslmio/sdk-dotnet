@@ -3,6 +3,9 @@ using Newtonsoft.Json;
 
 namespace Mslm.OtpNS
 {
+    /// <summary>
+    /// Represents the request for verifying a One-Time Password (OTP) token.
+    /// </summary>
     public class OtpTokenVerifyReq
     {
         [JsonProperty("phone")]
@@ -13,6 +16,9 @@ namespace Mslm.OtpNS
         public bool? Consume { get; set; }
     }
 
+    /// <summary>
+    /// Represents request options specifically for the OTP token verification operation.
+    /// </summary>
     public class OtpTokenVerifyReqOpts
     {
         public ReqOpts ReqOpts { get; set; }
