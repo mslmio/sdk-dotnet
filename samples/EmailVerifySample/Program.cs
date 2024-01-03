@@ -9,9 +9,14 @@ namespace EmailVerifySample
     {
         static async Task Main(string[] args)
         {
-            var emailVerifyClient = new EmailVerify("3f5deea912f8434684af92fbf92a0cd1");
+            // to use this sample, add your MSLM Api Key to environment variable
+            // named "MSLM_API_KEY", or initialize your key string directly.
+            string token = Environment.GetEnvironmentVariable("MSLM_API_KEY") ?? "default-api-key";
 
-            string emailToVerify = "hak173129@gmail.com";
+            var emailVerifyClient = new EmailVerify(token);
+            
+            // Email to verify.
+            string emailToVerify = "abc@gmail.com";
 
             try
             {

@@ -10,8 +10,12 @@ namespace Mslm.Tests
         public async Task TestSingleVerify()
         {
             // Arrange
-            var emailVerifyClient = new EmailVerify("3f5deea912f8434684af92fbf92a0cd1");
-            string emailToVerify = "hak17319@gmail.com";
+            // to run this test, add your MSLM Api Key to environment variable
+            // named "MSLM_API_KEY", or initialize your key string directly.
+            string token = Environment.GetEnvironmentVariable("MSLM_API_KEY") ?? "default-api-key";
+
+            var emailVerifyClient = new EmailVerify(token);
+            string emailToVerify = "abc@gmail.com";
 
             // Act
             var result = await emailVerifyClient.SingleVerify(emailToVerify);

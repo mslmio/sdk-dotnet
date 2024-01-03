@@ -16,7 +16,11 @@ namespace OtpTokenVerifySample
                 Consume = true
             };
 
-            var otpVerifyClient = new Otp("3f5deea912f8434684af92fbf92a0cd1");
+            // to use this sample, add your MSLM Api Key to environment variable
+            // named "MSLM_API_KEY", or initialize your key string directly.
+            string token = Environment.GetEnvironmentVariable("MSLM_API_KEY") ?? "default-api-key";
+
+            var otpVerifyClient = new Otp(token);
 
             try
             {

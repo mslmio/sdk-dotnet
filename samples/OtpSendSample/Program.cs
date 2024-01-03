@@ -17,7 +17,11 @@ namespace OtpSendSample
                 ExpireSeconds = 300
             };
 
-            var otpSendClient = new Mslm.OtpNS.Otp("aa");
+            // to use this sample, add your MSLM Api Key to environment variable
+            // named "MSLM_API_KEY", or initialize your key string directly.
+            string token = Environment.GetEnvironmentVariable("MSLM_API_KEY") ?? "default-api-key";
+
+            var otpSendClient = new Otp(token);
 
             try
             {
