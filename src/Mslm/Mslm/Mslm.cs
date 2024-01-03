@@ -6,7 +6,7 @@ using Mslm.LibNS;
 
 namespace Mslm.MslmNS
 {
-    public class Init
+    public class MslmClient
     {
         // Common util class.
         public Lib LibClient { get; private set; }
@@ -15,14 +15,14 @@ namespace Mslm.MslmNS
         public EmailVerify EmailVerifyClient { get; private set; }
         public Otp OtpClient { get; private set; }
 
-        public Init()
+        public MslmClient()
         {
             EmailVerifyClient = new EmailVerify();
             OtpClient = new Otp();
             LibClient = new Lib();
         }
 
-        public Init(string apiKey)
+        public MslmClient(string apiKey)
         {
             EmailVerifyClient = new EmailVerify(apiKey);
             OtpClient = new Otp(apiKey);
