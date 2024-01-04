@@ -13,22 +13,22 @@ namespace Mslm.MslmNS
         public Lib LibClient { get; private set; }
 
         // The Email Verify API client.
-        public EmailVerify EmailVerifyClient { get; private set; }
+        public EmailVerify EmailVerify { get; private set; }
 
         // The Otp API client
-        public Otp OtpClient { get; private set; }
+        public Otp Otp { get; private set; }
 
         public MslmClient()
         {
-            EmailVerifyClient = new EmailVerify();
-            OtpClient = new Otp();
+            EmailVerify = new EmailVerify();
+            Otp = new Otp();
             LibClient = new Lib();
         }
 
         public MslmClient(string apiKey)
         {
-            EmailVerifyClient = new EmailVerify(apiKey);
-            OtpClient = new Otp(apiKey);
+            EmailVerify = new EmailVerify(apiKey);
+            Otp = new Otp(apiKey);
             LibClient = new Lib(apiKey);
         }
 
@@ -38,8 +38,8 @@ namespace Mslm.MslmNS
         /// <param name="httpClient">The HttpClient instance to use.</param>
         public void SetHttpClient(HttpClient httpClient)
         {
-            EmailVerifyClient.SetHttpClient(httpClient);
-            OtpClient.SetHttpClient(httpClient);
+            EmailVerify.SetHttpClient(httpClient);
+            Otp.SetHttpClient(httpClient);
             LibClient.SetHttpClient(httpClient);
         }
 
@@ -49,8 +49,8 @@ namespace Mslm.MslmNS
         /// <param name="baseUrlStr">The base URL string.</param>
         public void SetBaseUrl(string baseUrlStr)
         {
-            EmailVerifyClient.SetBaseUrl(baseUrlStr);
-            OtpClient.SetBaseUrl(baseUrlStr);
+            EmailVerify.SetBaseUrl(baseUrlStr);
+            Otp.SetBaseUrl(baseUrlStr);
             LibClient.SetBaseUrl(baseUrlStr);
         }
 
@@ -60,8 +60,8 @@ namespace Mslm.MslmNS
         /// <param name="userAgent">The User-Agent string.</param>
         public void SetUserAgent(string userAgent)
         {
-            EmailVerifyClient.SetUserAgent(userAgent);
-            OtpClient.SetUserAgent(userAgent);
+            EmailVerify.SetUserAgent(userAgent);
+            Otp.SetUserAgent(userAgent);
             LibClient.SetUserAgent(userAgent);
         }
 
@@ -71,8 +71,8 @@ namespace Mslm.MslmNS
         /// <param name="apiKey">The API key.</param>
         public void SetApiKey(string apiKey)
         {
-            EmailVerifyClient.SetApiKey(apiKey);
-            OtpClient.SetApiKey(apiKey);
+            EmailVerify.SetApiKey(apiKey);
+            Otp.SetApiKey(apiKey);
             LibClient.SetApiKey(apiKey);
         }
     }

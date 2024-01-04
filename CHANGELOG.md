@@ -2,4 +2,4 @@
 
 ## 1.0.0
 
-- Initial release of Email Verify and Otp SDK.
+- Initial release of Email Verify and OTP SDK.

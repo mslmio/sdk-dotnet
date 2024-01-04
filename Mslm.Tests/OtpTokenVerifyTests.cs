@@ -7,11 +7,11 @@ public class OtpTokenVerifyTests
     [Fact]
     public async Task TestTokenVerify()
     {
-        // Arrange
-        // to run this test, add your MSLM Api Key to environment variable
+        // To run this test, add your Mslm API Key to environment variable
         // named "MSLM_API_KEY", or initialize your key string directly.
         string token = Environment.GetEnvironmentVariable("MSLM_API_KEY") ?? "default-api-key";
 
+        // Set up client.
         var otpClient = new Otp(token);
         var otpTokenVerifyReq = new OtpTokenVerifyReq
         {
@@ -20,10 +20,10 @@ public class OtpTokenVerifyTests
             Consume = true
         };
 
-        // Act
+        // Get result.
         var result = await otpClient.Verify(otpTokenVerifyReq);
 
-        // Assert
+        // Assert.
         Assert.NotNull(result);
     }
 }

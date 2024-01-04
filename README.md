@@ -92,13 +92,13 @@ class Program
 {
     static void Main(string[] args)
     {
-		// Initialize Mslm Client.
+        // Initialize Mslm Client.
         mslmClient = new MslmClient("MSLM_API_KEY");
 
         // Email verification example.
         string emailToVerify = "abc@gmail.com";
 
-        var response = await mslmClient.EmailVerifyClient.SingleVerify(emailToVerify);
+        var response = await mslmClient.EmailVerify.SingleVerify(emailToVerify);
         Console.WriteLine($"Msg: {response.Msg}");
         Console.WriteLine($"Email: {response.Email}");
         Console.WriteLine($"Status: {response.Status}");
@@ -112,7 +112,7 @@ class Program
                 ExpireSeconds = 300
             };
 
-        var response = await mslmClient.OtpClient.Send(otpSendReq);
+        var response = await mslmClient.Otp.Send(otpSendReq);
         Console.WriteLine($"Code: {response.Code}");
         Console.WriteLine($"Msg: {response.Msg}");
 
@@ -124,7 +124,7 @@ class Program
                 Consume = true
             };
 
-        var response = await mslmClient.OtpClient.Verify(otpVerifyReq);
+        var response = await mslmClient.Otp.Verify(otpVerifyReq);
         Console.WriteLine($"Code: {response.Code}");
         Console.WriteLine($"Msg: {response.Msg}");
     }
@@ -134,7 +134,7 @@ class Program
 
 ## About Mslm
 
-mslm focuses on producing world-class business solutions. It’s the
+Mslm focuses on producing world-class business solutions. It’s the
 bread-and-butter of our business to prioritize quality on everything we touch.
 Excellence is a core value that defines our culture from top to bottom.
 

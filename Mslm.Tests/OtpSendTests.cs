@@ -7,11 +7,11 @@ public class OtpSendTests
         [Fact]
         public async Task TestSend()
         {
-            // Arrange
-            // to run this test, add your MSLM Api Key to environment variable
+            // To run this test, add your Mslm API Key to environment variable
             // named "MSLM_API_KEY", or initialize your key string directly.
             string token = Environment.GetEnvironmentVariable("MSLM_API_KEY") ?? "default-api-key";
 
+            // Set up client.
             var otpClient = new Otp(token);
             var otpSendReq = new OtpSendReq {
                 Phone = "03219427983",
@@ -20,10 +20,9 @@ public class OtpSendTests
                 ExpireSeconds = 300
             };
 
-            // Act
             var result = await otpClient.Send(otpSendReq);
 
-            // Assert
+            // Assert.
             Assert.NotNull(result);
         }
     }

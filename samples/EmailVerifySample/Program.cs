@@ -9,7 +9,7 @@ namespace EmailVerifySample
     {
         static async Task Main(string[] args)
         {
-            // to use this sample, add your MSLM Api Key to environment variable
+            // To use this sample, add your Mslm API Key to environment variable
             // named "MSLM_API_KEY", or initialize your key string directly.
             string token = Environment.GetEnvironmentVariable("MSLM_API_KEY") ?? "default-api-key";
 
