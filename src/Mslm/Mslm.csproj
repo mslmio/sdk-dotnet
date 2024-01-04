@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <AssemblyName>Mslm.Sdk</AssemblyName>
+    <Version>1.0.0.0</Version>
+    <Title>Mslm</Title>
+    <Authors>Mslm</Authors>
+    <Product>Mslm</Product>
+    <Company>Mslm</Company>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <LangVersion>latest</LangVersion>
+    <PackageProjectUrl>https://github.com/mslmio/sdk-dotnet</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/mslmio/sdk-dotnet.git</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Description>Official C#/Dotnet SDK for the Mslm APIs.</Description>
+    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+    <Copyright>Copyright © 2023 mslm.io</Copyright>
+    <PackageTags>Mslm;API;SDK;C#;Dotnet</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath=""/>
+    <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
+
+</Project>
