@@ -78,7 +78,6 @@ class Program
         Console.WriteLine($"Msg: {response.Msg}");
     }
 }
-
 ```
 
 Or you can reference the global Mslm SDK client instead of individually
@@ -129,7 +128,6 @@ class Program
         Console.WriteLine($"Msg: {response.Msg}");
     }
 }
-
 ```
 
 ## About Mslm
