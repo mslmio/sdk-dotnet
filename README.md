@@ -1,6 +1,6 @@
-# Mslm Dotnet SDK
+# Mslm .NET SDK
 
-The official C#/Dotnet SDK for Mslm APIs.
+The official C#/.NET SDK for Mslm APIs.
 
 ## Requirements
 
@@ -8,7 +8,7 @@ The official C#/Dotnet SDK for Mslm APIs.
 
 ## Installation
 
-To install the Mslm Dotnet SDK, add it to your project via NuGet:
+To install the Mslm .NET SDK, add it to your project via NuGet:
 
 ```bash
 dotnet add package Mslm
@@ -50,11 +50,11 @@ class Program
         Console.WriteLine($"Email: {response.Email}");
         Console.WriteLine($"Status: {response.Status}");
 
-        // Otp send example (use actual phone number).
+        // OTP send example (use actual phone number).
         var otpSendReq = new OtpSendReq
             {
                 Phone = "12345678",
-                TmplSms = "This is your Otp",
+                TmplSms = "This is your OTP",
                 TokenLen = 6,
                 ExpireSeconds = 300
             };
@@ -103,11 +103,11 @@ class Program
         Console.WriteLine($"Email: {response.Email}");
         Console.WriteLine($"Status: {response.Status}");
 
-        // Otp send example (use actual phone number).
+        // OTP send example (use actual phone number).
         var otpSendReq = new OtpSendReq
             {
                 Phone = "12345678",
-                TmplSms = "This is your Otp",
+                TmplSms = "This is your OTP",
                 TokenLen = 6,
                 ExpireSeconds = 300
             };
@@ -116,7 +116,7 @@ class Program
         Console.WriteLine($"Code: {response.Code}");
         Console.WriteLine($"Msg: {response.Msg}");
 
-        // Otp token verify example (use actual phone number and token).
+        // OTP token verify example (use actual phone number and token).
         var otpVerifyReq = new OtpTokenVerifyReq
             {
                 Phone = "03219427983",
