@@ -6,6 +6,10 @@ The official C#/.NET SDK for Mslm APIs.
 
 - .NET Standard 2.0 or above.
 
+## Authentication
+
+Mslm's APIs require an API key. If you don't have one, please read [Authentication](https://mslm.io/docs/api/authentication) to understand how to get an API key before continuing.
+
 ## Installation
 
 To install the Mslm .NET SDK, add it to your project via NuGet:
