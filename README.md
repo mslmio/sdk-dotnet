@@ -14,7 +14,7 @@ To install the Mslm .NET SDK, add it to your project via NuGet:
 dotnet add package Mslm
 ```
 
-## Setting Up
+## Usage
 
 Ensure you have a .NET project. If not, you can start a new one:
 
